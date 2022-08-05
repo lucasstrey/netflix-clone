@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styled/FeaturedMovie.css";
 import {
   FeaturedAddList,
@@ -20,9 +20,23 @@ import {
 } from "./styled";
 
 export default ({ item }) => {
-  console.log(item);
   let firstDate = new Date(item.first_air_date);
   let genres = [];
+
+  const [sctollingTop, setScrollingTop] = useState(0)
+
+  console.log(sctollingTop)
+useEffect(() => {
+  const onScroll = e => {
+    setScrollingTop(e.target.documentElement.scrollTop)
+  }
+
+  window.addEventListener('scroll', onScroll)
+
+  return () => window.removeEventListener('scroll', onScroll)
+
+}, [setScrollingTop])
+
 
   for (let i in item.genres) {
     genres.push(item.genres[i].name);
@@ -31,7 +45,7 @@ export default ({ item }) => {
   // comment
   return (
     <Section url={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}>
-      <Menu opa={true}>
+      <Menu opa={sctollingTop < 35}>
         <MenuTitle>Netflix</MenuTitle>
       </Menu>
       <FeaturedVertical>
@@ -68,7 +82,6 @@ export default ({ item }) => {
 };
 
 const limitCaracter = (value) => {
-  console.log(value.length);
   if (value.length > 350) {
     return `${value.slice(0, 351)}...`;
   } else {

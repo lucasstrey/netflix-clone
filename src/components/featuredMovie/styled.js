@@ -1,20 +1,21 @@
 import styled, { css } from "styled-components";
 
 export const Menu = styled.div`
+z-index: 10;
   width: 100%;
-  display: flex;
+  display: inline-block;
+  height: 50px;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
-  height: 35px;
-  opacity: ${props => props.opa? 1 : 0.5};
-  
-`;
+  background: ${props => props.opa ? "rgba(0, 0, 0, 0)" : "rgba(0, 0, 0, 1)"};
+  transition: 600ms;
+  user-select: none;
+`
+
 
 export const MenuTitle = styled.div`
-  opacity: 1 !important;
-  
-margin-top: 5px;
+  margin-top: 5px;
   color: #e50914;
   font-size: 25px;
   margin-left: 30px;
@@ -31,12 +32,11 @@ export const Section = styled.section`
 `;
 
 export const FeaturedDescription = styled.div`
-  
   font-size: 20px;
   color: #999;
   max-width: 45%;
   height: 165px;
-  margin:15px;
+  margin: 15px;
 `;
 export const FeaturedVertical = styled.div`
   width: inherit;
@@ -52,12 +52,14 @@ export const FeaturedHorizontal = styled.div`
   justify-content: center;
   padding-left: 30px;
   padding-bottom: 150px;
-  padding-top: 70px;
+  padding-top: 7px;
 `;
 
 export const FeaturedName = styled.div`
+margin-top: 0%;
   font-size: 60px;
   font-weight: bold;
+  user-select: none;
 `;
 
 const Pattern = css`
@@ -69,21 +71,26 @@ const Pattern = css`
 export const FeaturedPoints = styled.div`
   ${Pattern}
   color: #46d369;
-  margin:0 0 7px 0; 
+  margin: 0 0 7px 0;  
+  user-select: none; 
 `;
 
 export const FeaturedInfo = styled.div`
   font-size: 18px;
   font-weight: bold;
-  margin:15px 0 5px 0;
+  margin: 15px 0 5px 0;
+  user-select: none;
 `;
 
 export const FeaturedYear = styled.div`
   font-weight: bold;
   font-size: 18px;
-  margin:0 0 3px 0;
+  margin: 0 0 3px 0;
+  user-select: none;
 `;
-export const FeaturedSeasons = styled.div``;
+export const FeaturedSeasons = styled.div`
+user-select: none;
+`;
 
 export const FeaturedButtons = styled.div`
   padding-top: 15px; ;
@@ -113,11 +120,11 @@ export const FeaturedWatchButton = styled.a`
   background-color: #fff;
   color: #000;
   :hover {
-opacity: 0.6;
+    opacity: 0.6;
   }
 `;
 
 export const FeaturedAddList = styled(FeaturedWatchButton)`
-background-color: #333;
-color: #fff;
+  background-color: #333;
+  color: #fff;
 `;
