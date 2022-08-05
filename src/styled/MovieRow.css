@@ -1,10 +1,14 @@
 .movieRow{
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    user-select: none;
+    cursor: default;
 }
 
 .movieRow h2 {
 
     margin: 0 0 0 30px ;
+    user-select: none;
+    cursor: default;
 
 }
 .movieRow--listarea {
@@ -14,18 +18,21 @@
 
 }
 .movieRow--list {
-    width: 9999999999px;
+    width: 9999999999px;    
+    user-select: none;
+    cursor: default;
 }
 .movieRow--item {
     display: inline-block;
-    width: 150px ;
-    cursor: pointer;
+    width: 200px ;
+    cursor: default;
 }
 
 .movieRow--item img {
     width: 100%;
     transform: scale(0.9);
     transition: all ease 0.3s;
+    cursor: pointer;
 } 
 .movieRow--item img:hover {
     transform: scale(1);

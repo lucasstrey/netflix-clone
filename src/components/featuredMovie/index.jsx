@@ -23,20 +23,17 @@ export default ({ item }) => {
   let firstDate = new Date(item.first_air_date);
   let genres = [];
 
-  const [sctollingTop, setScrollingTop] = useState(0)
+  const [scrollTop, setScrollTop] = useState(0);
 
-  console.log(sctollingTop)
-useEffect(() => {
-  const onScroll = e => {
-    setScrollingTop(e.target.documentElement.scrollTop)
-  }
+  useEffect(() => {
+    const onScroll = (e) => {
+      setScrollTop(e.target.documentElement.scrollTop);
+    };
 
-  window.addEventListener('scroll', onScroll)
+    window.addEventListener("scroll", onScroll);
 
-  return () => window.removeEventListener('scroll', onScroll)
-
-}, [setScrollingTop])
-
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [setScrollTop]);
 
   for (let i in item.genres) {
     genres.push(item.genres[i].name);
@@ -45,7 +42,7 @@ useEffect(() => {
   // comment
   return (
     <Section url={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}>
-      <Menu opa={sctollingTop < 35}>
+      <Menu opa={scrollTop < 35}>
         <MenuTitle>Netflix</MenuTitle>
       </Menu>
       <FeaturedVertical>
